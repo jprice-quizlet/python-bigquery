@@ -1409,6 +1409,19 @@ class LoadJobConfig(_JobConfig):
         self._set_sub_prop("useAvroLogicalTypes", bool(value))
 
     @property
+    def use_legacy_sql(self):
+        """bool: Use legacy SQL syntax.
+
+        See
+        https://cloud.google.com/bigquery/docs/reference/rest/v2/Job#JobConfigurationQuery.FIELDS.use_legacy_sql
+        """
+        return self._get_sub_prop("useLegacySql")
+
+    @use_legacy_sql.setter
+    def use_legacy_sql(self, value):
+        self._set_sub_prop("useLegacySql", bool(value))
+
+    @property
     def write_disposition(self):
         """Optional[google.cloud.bigquery.job.WriteDisposition]: Action that occurs if
         the destination table already exists.
